@@ -284,7 +284,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
             .should('have.value', longtext)
       })
 
-      it('faz uma requisição http', function() {
+      it.only('faz uma requisição http', function() {
         cy.request('https://cac-tat.s3.eu-central-1.amazonaws.com/index.html')
             .should(function(response) {
                 console.log(response)
@@ -294,25 +294,5 @@ describe('Central de Atendimento ao Cliente TAT', function() {
                 expect(body).to.include('CAC TAT')     
             })
       })
-
-
-      it.only('encontra  gato escondido', function() {
-        cy.get('#cat')
-            .invoke('show')
-            .should('be.visible')
-
-        cy.get('#title')
-            .invoke('text', 'CAT TAT')
-        
-        cy.get('#subtitle')
-            .invoke('text', 'Eu ❤️ gatos!')
-      })
-
-
-
-
-
-
-
 
 })
